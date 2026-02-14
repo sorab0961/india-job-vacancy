@@ -1,0 +1,165 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy-50: #f0f4ff;
+  --color-navy-100: #dbe3ff;
+  --color-navy-200: #b8c9ff;
+  --color-navy-300: #89a5ff;
+  --color-navy-400: #5a7dff;
+  --color-navy-500: #3554db;
+  --color-navy-600: #1e3a8a;
+  --color-navy-700: #172e6e;
+  --color-navy-800: #0f1f4d;
+  --color-navy-900: #0a1533;
+  --color-navy-950: #060d1f;
+
+  --color-saffron: #FF9933;
+  --color-saffron-light: #FFB366;
+  --color-india-green: #138808;
+  --color-india-green-light: #1aaf0a;
+  --color-ashoka-blue: #000080;
+
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ─── Theme CSS Variables ─────────────────────────── */
+:root,
+[data-theme="dark"] {
+  --bg-primary: #060d1f;
+  --bg-secondary: #0a1533;
+  --bg-card: rgba(15, 31, 77, 0.5);
+  --bg-card-hover: rgba(15, 31, 77, 0.7);
+  --bg-input: rgba(15, 31, 77, 0.6);
+  --bg-nav: rgba(6, 13, 31, 0.8);
+  --border-primary: rgba(23, 46, 110, 0.5);
+  --border-secondary: rgba(30, 58, 138, 1);
+  --text-primary: #ffffff;
+  --text-secondary: #b8c9ff;
+  --text-muted: #5a7dff;
+  --text-faint: #3554db;
+  --shadow-glow: rgba(255, 153, 51, 0.05);
+}
+
+[data-theme="light"] {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-input: rgba(241, 245, 249, 0.8);
+  --bg-nav: rgba(255, 255, 255, 0.9);
+  --border-primary: rgba(203, 213, 225, 0.7);
+  --border-secondary: #cbd5e1;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-faint: #94a3b8;
+  --shadow-glow: rgba(255, 153, 51, 0.1);
+}
+
+/* ─── Theme-aware base styles ──────────────────────── */
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ─── Light theme overrides for components ─────────── */
+[data-theme="light"] .theme-bg {
+  background-color: var(--bg-primary);
+}
+
+[data-theme="light"] .theme-nav {
+  background-color: var(--bg-nav);
+  border-color: var(--border-primary);
+}
+
+[data-theme="light"] .theme-card {
+  background-color: var(--bg-card);
+  border-color: var(--border-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="light"] .theme-card:hover {
+  box-shadow: 0 8px 25px rgba(255, 153, 51, 0.12);
+}
+
+[data-theme="light"] .theme-input {
+  background-color: var(--bg-input);
+  border-color: var(--border-secondary);
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .theme-input::placeholder {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .theme-input:focus {
+  border-color: #FF9933;
+}
+
+[data-theme="light"] .theme-text {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .theme-text-secondary {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .theme-text-muted {
+  color: var(--text-muted);
+}
+
+[data-theme="light"] .theme-border {
+  border-color: var(--border-primary);
+}
+
+[data-theme="light"] .theme-hero {
+  background: linear-gradient(to bottom, #f8fafc, #e2e8f0, #f8fafc);
+}
+
+[data-theme="light"] .theme-section-alt {
+  background-color: var(--bg-secondary);
+}
+
+[data-theme="light"] .theme-footer {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+/* ─── Scrollbar ────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-secondary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* ─── Smooth scroll ────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Selection ────────────────────────────────────── */
+::selection {
+  background-color: #FF9933;
+  color: white;
+}
+
+/* ─── Transitions for theme switch ─────────────────── */
+.theme-transition,
+.theme-transition * {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
